@@ -55,17 +55,12 @@ total = 0
 
 for s in total_string: 
     # regex pattern to match requirements for XMAS
-    pattern = r"XMAS"
-    pattern2 = r"SAMX"
- 
-    # find all matches in the string
-    matches = re.findall(pattern, s)
-    for match in matches: 
-        total += 1
-
-
-    matches = re.findall(pattern2, s)
-    for match in matches: 
-        total += 1
-
+    patterns = [r"XMAS", r"SAMX"] 
+    
+    for pattern in patterns: 
+        # find all matches in the string
+        matches = re.findall(pattern, s)
+        for match in matches: 
+            total += 1
+            
 print(total)
