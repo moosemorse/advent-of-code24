@@ -64,3 +64,22 @@ for s in total_string:
             total += 1
             
 print(total)
+
+## Part 2 of Day 4 ## 
+
+# I wanted to adapt my solution from part 1 but it seems like a lot of work 
+# So will just use another strategy 
+
+total_2 = 0 
+
+for i, row in enumerate(rows): 
+    if i > 0 and i < len(rows) - 1: 
+        for j, c in enumerate(row): 
+            if j > 0 and j < len(row) - 1: 
+                if c == 'A': 
+                    ans = ['A', 'M', 'S']
+                    if sorted(rows[i+1][j-1] + c + rows[i-1][j+1]) == ans \
+                    and sorted(rows[i-1][j-1] + c + rows[i+1][j+1]) == ans: 
+                        total_2 += 1 
+
+print(total_2)
