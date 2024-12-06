@@ -26,9 +26,22 @@ for update in updates:
     if valid: 
         middle_values += update[len(update) // 2]
     else: 
-        incorrect_updates.append(update) 
+        incorrect_updates.append(update) # for part 2 
 
 print(middle_values)
 
 ## Part 2 of Day 5 ## 
 
+inc_mid_vals = 0
+
+for update in incorrect_updates: 
+    for counter, page in enumerate(update): 
+        for i, p in enumerate(update[:counter]): 
+            if p in rules[page]: 
+                temp1 = update[counter]
+                update[counter] = update[i]
+                update[i] = temp1
+
+    inc_mid_vals += update[len(update) // 2]
+
+print(inc_mid_vals)
